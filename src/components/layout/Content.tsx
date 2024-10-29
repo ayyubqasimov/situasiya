@@ -1,3 +1,4 @@
+
 import { Collapse, Table } from "antd";
 import GeneralFilter from "../shared/GeneralFilter";
 import AllFilter from "../shared/AllFilter";
@@ -5,6 +6,8 @@ import { fetchData } from "../../features/client"; // fetchData fonksiyonunu iç
 import { EditOutlined, PushpinOutlined } from "@ant-design/icons";
 import { Button, Image } from "antd";
 import { useEffect, useState } from "react";
+import { CSSProperties } from "react";
+import { Pagination } from "antd";
 
 // Define an interface for the error type
 interface ErrorType {
@@ -19,12 +22,17 @@ const Content = ({ type }: ContentProps) => {
   const [data, setData] = useState<any[]>([]);
   const [error, setError] = useState<ErrorType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1); // Current page state
+  const [totalItems, setTotalItems] = useState(0); // Total items state
+  const itemsPerPage = 10;
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const result = await fetchData();
-        setData(result);
+        const offset = (currentPage - 1) * itemsPerPage; // Calculate offset
+        const result = await fetchData(itemsPerPage, offset); // Pass max and offset
+        setData(result.entities);
+        setTotalItems(result.total); // Set total items
       } catch (err) {
         setError(err as ErrorType);
       } finally {
@@ -33,7 +41,7 @@ const Content = ({ type }: ContentProps) => {
     };
 
     loadData();
-  }, []);
+  }, [currentPage]);
 
   if (error) {
     return <div>{error.message}</div>;
@@ -45,7 +53,18 @@ const Content = ({ type }: ContentProps) => {
 
   const handleEditClick = (recordId: string) => {
     // Yeni pencerede `Conflict` sayfasını aç
-    window.open(`/conflict`, "_blank");
+    window.open(`/conflicts/${recordId}`, "_blank"); // recordId eklenerek URL güncellendi
+};
+
+const handlePageChange = (page: number) => {
+  setCurrentPage(page); // Update current page
+};
+
+
+// ... existing code ...
+
+  const iconStyle: CSSProperties = {
+    color: "#1890ff", // Set the icon color
   };
 
   const tableColumns = [
@@ -84,11 +103,11 @@ const Content = ({ type }: ContentProps) => {
       render: (_: any, record: any) => (
         <div>
           <Button
-            icon={<EditOutlined />}
+            icon={<EditOutlined style={iconStyle} />} 
             style={{ marginRight: 8 }}
-            onClick={() => handleEditClick(record.id)} // Edit tıklandığında yeni pencere açılır
+            onClick={() => handleEditClick(record.id)} 
           />
-          <Button icon={<PushpinOutlined />} />
+          <Button icon={<PushpinOutlined style={iconStyle} />} /> 
         </div>
       ),
     },
@@ -114,8 +133,17 @@ const Content = ({ type }: ContentProps) => {
           rowKey="id" // Her bir satır için benzersiz anahtar
         />
       </div>
+      <Pagination
+        current={currentPage} // Current page
+        pageSize={itemsPerPage} // Items per page
+        total={totalItems} // Total items
+        onChange={handlePageChange} // Handle page change
+        showSizeChanger={false} // Hide size changer if not needed
+        style={{ marginTop: 16, textAlign: "center" }} // Center the pagination
+      />
     </>
   );
 };
 
 export default Content;
+

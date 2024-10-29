@@ -1,0 +1,237 @@
+/* Genel ayarlar */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.conflict-page {
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+/* Header */
+.conflict-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004b93;
+  padding: 10px 20px;
+  color: white;
+}
+
+.conflict-header .header-left img {
+  width: 150px;
+}
+
+.conflict-header .header-right {
+  text-align: right;
+  font-size: 1rem;
+}
+
+/* Video player */
+.video-container {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border: 1px solid #d9d9d9;
+  border-radius: 7px;
+
+}
+
+/* Bilgilendirme Bölümü */
+.info-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.info-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Kart Bölümü */
+.card-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #111213;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #d3d3d3;
+  font-weight: 100 !important;
+}
+
+.card p {
+  font-size: 14px;
+  color: #008000;
+  font-weight: 400;
+  margin-bottom: 5px;
+  padding: 24px 0;
+  padding-left: 15px;
+}
+
+/* Onay Bölümü */
+.approval-section {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.btn-imtina {
+  color: #000000A6;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid;
+}
+
+.btn-gonder {
+  background-color: #4ea62e;;
+  color: white;
+  align-self: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.right {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.left {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+}
+
+video::-webkit-media-controls-enclosure {
+  background-color: #000;
+  /* Kontrollerin arka plan rengi */
+}
+
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-fullscreen-button {
+  color: #fff;
+  /* Kontroller ikonlarının rengi */
+}
+
+
+.approval-buttons {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-imtina,
+.btn-tesdiq,
+.btn-gonder {
+  padding: 3px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-tesdiq {
+  font-size: 14px;
+  color: #000000A6;
+  border-radius: 0 4px 4px 0;
+  border: 1px solid;
+}
+
+.approval-note {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+
+.card-container {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.step-name {
+  color: #111213;
+  font-size: 20px;
+  font-weight: 400;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.line-through {
+  font-size: 14px;
+}
+
+.btn-imtina p {
+  font-size: 14px;
+}
+
+.btn-imtina {
+  border-radius: 4px 0 0 4px;
+}
+
+.btn-tesdiq {
+  border-radius: 0 4px 4px 0;
+}
+
+.btn-imtina:hover,
+.btn-tesdiq:hover {
+  color: #1890ff;
+}
+
+/* Footer */
+
+.footer p {
+  text-align: center;
+  color: #111213;
+  background: #f0f2f5;
+  padding: 24px 50px;
+  font-size: 14px;
+}
+
+.view-text{
+  font-size: 18px;
+  margin: 0 0 0 6px;
+  font-weight: 400;
+  line-height: 2rem;
+  color: #797d7f;
+  font-family: Arial;
+}

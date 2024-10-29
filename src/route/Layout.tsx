@@ -66,7 +66,7 @@ import { getNavbarItems } from "../config/navbar";
 import { roleNames, Roles } from "../config/roles";
 import { userStore } from "../store/user";
 import { useEffect } from "react";
-import { useNavigate , useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 export const RootLayout: React.FC<{ children: JSX.Element }> = ({ children }: { children: JSX.Element }) => {
@@ -96,8 +96,8 @@ export const RootLayout: React.FC<{ children: JSX.Element }> = ({ children }: { 
         </div>
       </header>
       <div className="h-full flex">
-        {/* Conditionally render the Menu only if not on the "/conflict" route */}
-        {location.pathname !== "/conflict" && (
+        
+      {location.pathname !== "/conflicts" && !location.pathname.startsWith("/conflicts/") && (
           <aside className="flex-[1] max-w-[300px] pt-3">
             <Menu mode="inline" items={items} className="h-full" selectedKeys={[items.find((item: any) => item.href === location.pathname)?.key]} />
           </aside>

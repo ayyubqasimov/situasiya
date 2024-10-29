@@ -81,7 +81,7 @@ const Router: RouteObject = {
       ),
     },
     {
-      path: "/conflict", // /conflict rotasını ekliyoruz
+      path: "/conflicts/:id", 
       element: (
         <RootLayout>
           <Conflict />
