@@ -3,7 +3,7 @@ import { createBrowserRouter, RouteObject, RouterProvider } from "react-router-d
 import { RootLayout } from "./Layout.tsx";
 import { Button, Result } from "antd";
 import Content from "../components/layout/Content.tsx";
-import Conflicts from "../components/conflicts/Conflicts.tsx";
+import Conflicts from "../components/details/conflicts/Conflicts.tsx";
 
 const Router: RouteObject = {
   path: "",

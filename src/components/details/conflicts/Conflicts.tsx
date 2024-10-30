@@ -137,7 +137,7 @@
 import './conflicts.css';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchConflictDetails } from "../../features/client";
+import { fetchConflictDetails } from "../../../features/client";
 
 const Conflicts = () => {
   const { id } = useParams<{ id: string }>();
