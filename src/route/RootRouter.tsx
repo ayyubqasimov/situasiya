@@ -3,7 +3,7 @@ import { createBrowserRouter, RouteObject, RouterProvider } from "react-router-d
 import { RootLayout } from "./Layout.tsx";
 import { Button, Result } from "antd";
 import Content from "../components/layout/Content.tsx";
-import Conflict from "../components/conflicts/Conflicts.tsx";
+import Conflicts from "../components/conflicts/Conflicts.tsx";
 
 const Router: RouteObject = {
   path: "",
@@ -28,7 +28,7 @@ const Router: RouteObject = {
       path: "/reviewables",
       element: (
         <RootLayout>
-          <Content />
+          <Content type="reviewables" />
         </RootLayout>
       ),
     },
@@ -84,7 +84,7 @@ const Router: RouteObject = {
       path: "/conflicts/:id", 
       element: (
         <RootLayout>
-          <Conflict />
+          <Conflicts />
         </RootLayout>
       ),
     },
